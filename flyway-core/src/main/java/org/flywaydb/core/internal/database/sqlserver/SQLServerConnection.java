@@ -49,7 +49,7 @@ public class SQLServerConnection extends Connection<SQLServerDatabase> {
         }
         try {
             originalAnsiNulls = database.isAzure() ? null :
-                    jdbcTemplate.queryForString("DECLARE @ANSI_NULLS VARCHAR(3) = 'OFF';\n" +
+                    jdbcTemplate.queryForString("DECLARE @ANSI_NULLS VARCHAR(3); SET @ANSI_NULLS = 'OFF';\n" +
                             "IF ( (32 & @@OPTIONS) = 32 ) SET @ANSI_NULLS = 'ON';\n" +
                             "SELECT @ANSI_NULLS AS ANSI_NULLS;");
         } catch (SQLException e) {

@@ -74,8 +74,9 @@ public class SQLServerDatabase extends Database<SQLServerConnection> {
 
     @Override
     protected final void ensureSupported() {
-        String release = versionToReleaseName(majorVersion, minorVersion);
+        /*String release = versionToReleaseName(majorVersion, minorVersion);
 
+        
         if (majorVersion < 10) {
             throw new FlywayDbUpgradeRequiredException("SQL Server", release, "2008");
         }
@@ -86,7 +87,7 @@ public class SQLServerDatabase extends Database<SQLServerConnection> {
 
         if (majorVersion > 14 || (majorVersion == 14 && minorVersion > 0)) {
             recommendFlywayUpgrade("SQL Server", release);
-        }
+        }*/
     }
 
     private String versionToReleaseName(int major, int minor) {
